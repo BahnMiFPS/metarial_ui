@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import SearchAppBar from './components/SearchAppBar';
+import HomePage from './pages/HomePage';
+import { Route, Routes } from 'react-router-dom';
+import PageTow from './pages/PageTow';
+import PageThree from './pages/PageThree';
+import PageTabs from './components/PageTabs'
+import { Container } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import DetailPage from './pages/DetailPage';
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 
 function App() {
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <SearchAppBar/>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="pageTwo" element={<PageTow/>}/>
+        <Route path="pageThree" element={<PageThree/>}/>
+        <Route path="pageDetail/:id" element={<DetailPage/>}/>
+      </Routes>
+      <Container sx={{display:'flex',justifyContent:'center'}}>
+        <PageTabs/>
+      </Container>
+    </ThemeProvider>
   );
 }
 
