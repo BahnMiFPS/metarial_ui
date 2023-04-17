@@ -13,7 +13,7 @@ export default function DetailCard() {
     const job = data.find((job) => jobId === job.id)
     if(!job)
     return <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
-    No job
+    No find job
     </Typography>
     
   return (
@@ -49,7 +49,4 @@ export default function DetailCard() {
       </Card>
   );
 }
-/**
- * {job.description}
- * {job.skills.map((item)=> (<Box key={item +"item"} sx={{backgroundColor:'red', mr:1, display:'inline-block',fontSize:12,borderRadius:5,padding:0.7}}>{item}</Box>))}
- */
+

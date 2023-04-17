@@ -2,6 +2,7 @@ import React from 'react'
 import  JobCard  from '../components/JobCard';
 import data from '../data.json';
 import { Container, Grid } from '@mui/material';
+import PageTabs from '../components/PageTabs'
 
 
 const PageTow = () => {
@@ -14,6 +15,9 @@ const PageTow = () => {
       </Grid>
       ))} 
       </Grid>
+      <Container sx={{display:'flex',justifyContent:'center'}}>
+        <PageTabs/>
+      </Container>
     </Container>
   )
 }

@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 export default function JobCard({job}) {
   const navigate = useNavigate();
   return (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
+    <Card sx={{ minWidth: 275, minHeight: 300 }}>
+      <CardContent sx={{ minHeight: 230 }}>
         <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
          {job.title}
         </Typography>

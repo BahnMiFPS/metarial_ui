@@ -2,10 +2,15 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { useNavigate } from 'react-router-dom';
+import { ListContext } from '../pages/HomePage';
+
+//import { useNavigate } from 'react-router-dom';
 
 export default function ScrollableTabsButtonAuto() {
-  const navigator =useNavigate()
+//  const navigator =useNavigate()
+  const valuePage= React.useContext(ListContext)
+  const {setListPageStart,setListPageEnd} = valuePage;
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -22,9 +27,18 @@ export default function ScrollableTabsButtonAuto() {
         scrollButtons="auto"
         aria-label="scrollable auto tabs example"
       >
-        <Tab label="Page 1" onClick={()=> navigator(`/`)}/>
-        <Tab label="Page 2" onClick={()=> navigator(`/pageTwo`)}/>
-        <Tab label="Page 3" onClick={()=> navigator(`/pageThree`)}/>
+        <Tab label="Page 1" onClick={() => {
+          setListPageStart(0)
+          setListPageEnd(5)
+        }} />
+        <Tab label="Page 2" onClick={() => {
+          setListPageStart(5)
+          setListPageEnd(10)
+        }}/>
+        <Tab label="Page 3" onClick={() => {
+          setListPageStart(10)
+          setListPageEnd(14)
+        }}/>
       </Tabs>
     </Box>
   );

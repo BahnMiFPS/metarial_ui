@@ -4,11 +4,10 @@ import HomePage from './pages/HomePage';
 import { Route, Routes } from 'react-router-dom';
 import PageTow from './pages/PageTow';
 import PageThree from './pages/PageThree';
-import PageTabs from './components/PageTabs'
-import { Container } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import DetailPage from './pages/DetailPage';
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -29,9 +28,6 @@ function App() {
         <Route path="pageThree" element={<PageThree/>}/>
         <Route path="pageDetail/:id" element={<DetailPage/>}/>
       </Routes>
-      <Container sx={{display:'flex',justifyContent:'center'}}>
-        <PageTabs/>
-      </Container>
     </ThemeProvider>
   );
 }
