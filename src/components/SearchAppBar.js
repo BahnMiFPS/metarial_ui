@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-
+import LoginIcon from '@mui/icons-material/Login';
+import { Link } from '@mui/material';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -71,11 +72,11 @@ export default function SearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 0, display: { xs: 'none', sm: 'block' }, mr:2}}
           >
             JobRouting
           </Typography>
-         
+          
 
           <Search>
             <SearchIconWrapper>
@@ -86,6 +87,15 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+          <Box sx={{flexGrow: 1}}/>
+          <Link href="#" underline='none' sx={{color: "white", display: { xs: 'none', sm: 'block' }}}>
+          <IconButton aria-label="delete" size="large">
+            <LoginIcon/>
+          </IconButton>
+          Sign In
+          </Link>
+          
+        
         </Toolbar>
       </AppBar>
     </Box>
